@@ -139,8 +139,9 @@ function right () {
         setCookie("currentStage", currentStage + 1, 30); 
         setCookie("stage" + currentStage, currentPage, 30);
         let alphaVal = currentPage.substring(0, 1).toLowerCase().charCodeAt(0) - 97 + 2; // increment by one
+        alert(String.fromCharCode(alphaVal) + "1");
         setCookie("currentPage", String.fromCharCode(alphaVal) + "1", 30);
-        if (alphaVal == 7) {
+        if (alphaVal === 7) {
             alert("WE'RE DONE!");
         }
         
