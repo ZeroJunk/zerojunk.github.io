@@ -92,9 +92,9 @@ function handleData () {
 
 function left () {
     if (answer) {
-        // restart
-        // change current page, need id system to be A1, A2, A3... for each stage
+        setCookie("currentPage", currentPage.substring(0, 1) + "1", 30);
     } else {
+        setCookie("currentPage", pageInfo.left, 30);
         // look for left page, go through options (search all of ti to find appropriate page)
     }
 }
@@ -102,13 +102,26 @@ function left () {
 function right () {
     if (answer) {
         // change current state, current page, and save the data to stage1 or something. advance current stage and variable  
+        setCookie("currentStage", currentStage + 1, 30); 
     } else {
-        // look for left page
+        setCookie("currentPage", pageInfo.right, 30);
     }
 }
 
 // need global array, the actual CYOA. 
 handleData();
 document.getElementById("objective").textContent = stagePrompt(currentStage);
+document.getElementById("title").textContent = pageInfo.name;
+if (answer) {
+    document.getElementById("description").textContent = pageInfo.description;
+    document.getElementById("left-button").textContent = "START OVER";
+    document.getElementById("left-button").style.backgroundColor = "red";
+    document.getElementById("right-button").textContent = "SAVE AND QUIT";
+    document.getElementById("right-button").style.backgroundColor = "green";
+} else {
+    document.getElementById("left-button").textContent = pageInfo.leftText;
+    document.getElementById("right-button").textContent = pageInfo.rightText;
+}
+
 
 /*during destination, left button is red start over, right button is green move on */
