@@ -138,11 +138,12 @@ function right () {
         // change current state, current page, and save the data to stage1 or something. advance current stage and variable  
         setCookie("currentStage", currentStage + 1, 30); 
         setCookie("stage" + currentStage, currentPage, 30);
-        const alphaVal = currentPage.substring(0, 1).toLowerCase().charCodeAt(0) - 97 + 2; // increment by one
+        let alphaVal = currentPage.substring(0, 1).toLowerCase().charCodeAt(0) - 97 + 2; // increment by one
+        setCookie("currentPage", String.fromCharCode(alphaVal) + "1", 30);
         if (alphaVal == 7) {
             alert("WE'RE DONE!");
         }
-        setCookie("currentPage", String.fromCharCode(alphaVal) + "1", 30);
+        
     } else {
         setCookie("currentPage", pageInfo.right, 30);
     }
