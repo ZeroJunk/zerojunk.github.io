@@ -154,6 +154,7 @@ function right () {
 handleData();
 document.getElementById("objective").textContent = stagePrompt(currentStage);
 document.getElementById("title").textContent = pageInfo.name;
+document.getElementById("bottom-text").textContent = document.cookie;
 if (answer) {
     document.getElementById("description").textContent = pageInfo.description;
     document.getElementById("left-button").textContent = "START OVER";
