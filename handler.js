@@ -97,15 +97,19 @@ function left () {
         setCookie("currentPage", pageInfo.left, 30);
         // look for left page, go through options (search all of ti to find appropriate page)
     }
+    location.reload();
 }
 
 function right () {
     if (answer) {
         // change current state, current page, and save the data to stage1 or something. advance current stage and variable  
         setCookie("currentStage", currentStage + 1, 30); 
+        setCookie("stage" + currentStage, currentPage, 30);
+        setCookie("currentPage", )
     } else {
         setCookie("currentPage", pageInfo.right, 30);
     }
+    location.reload();
 }
 
 // need global array, the actual CYOA. 
