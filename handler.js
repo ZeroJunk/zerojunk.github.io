@@ -108,7 +108,7 @@ function right () {
 }
 
 // need global array, the actual CYOA. 
-
+handleData();
 document.getElementById("objective").textContent = stagePrompt(currentStage);
 
 /*during destination, left button is red start over, right button is green move on */
