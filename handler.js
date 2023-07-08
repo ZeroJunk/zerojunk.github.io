@@ -25,7 +25,7 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 function removeCookie(cname) {
-    
+    document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 
 function getCookie(cname) {
@@ -44,7 +44,8 @@ function getCookie(cname) {
     return "";
 }
 
-var stageType = getCookie("stageNumber");
-
+var stageType = parseInt(getCookie("currentStage"));
+alert(document.cookie);
+document.getElementById("objective").textContent = stagePrompt(stageType);
 
 /*during destination, left button is red start over, right button is green move on */
