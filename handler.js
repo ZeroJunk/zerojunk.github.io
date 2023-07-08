@@ -24,6 +24,42 @@ var options = [
         "type": "answer",
         "name": "Y",
         "description": "So this is Y"
+    },
+    {
+        "id": "B1",
+        "type": "decision",
+        "name": "The Book of Mommon commands that you pass. Do you pass?",
+        "leftText": "OBEY MOMMON. MOMMON IS ONE. MOMMON IS ALL.",
+        "rightText": "Nah fam, I'm passin' on passin'",
+        "left": "B2",
+        "right": "B3"
+    },
+    {
+        "id": "B2",
+        "type": "decision",
+        "name": "You're trapped in a tunnel. Do you move to the left or right? It doesn't matter anyway.",
+        "leftText": "To the left",
+        "rightText": "To the right",
+        "left": "B4",
+        "right": "B5"
+    },
+    {
+        "id": "B3",
+        "type": "answer",
+        "name": "You slide out...",
+        "description": "I forgot to add plot I'll be back soon"
+    },
+    {
+        "id": "B4",
+        "type": "answer",
+        "name": "You get eaten by a Beft from a Dr.Seuss book, who continues to move on to the left. Chomp.",
+        "description": "Restart?"
+    },
+    {
+        "id": "B5",
+        "type": "answer",
+        "name": "You get eaten in front of a beaten down traffic sign. Arf.",
+        "description": "Restart?"
     }
 ]
 
