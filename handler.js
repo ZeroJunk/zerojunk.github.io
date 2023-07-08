@@ -1,30 +1,33 @@
 var currentStage = 0; // from 1-6
 var currentPage = 0;
 var answer = false; // whether a choice has been made in the current stage
+var pageInfo;
 
 var options = [
     {
-        "id": 1,
+        "id": "A1", // change to A1 or so. A means 1st stage card 
         "type": "decision",
         "name": "Do you want X or Y?",
         "leftText": "I'll go with X",
         "rightText": "I'll stick with Y",
-        "left": 2,
-        "right": 3
+        "left": "A2",
+        "right": "A3"
     }, 
     {
-        "id": 2,
+        "id": "A2",
         "type": "answer",
         "name": "X",
         "description": "Yeah this is X"
     }, 
     {
-        "id": 3,
+        "id": "A3",
         "type": "answer",
         "name": "Y",
         "description": "So this is Y"
     }
 ]
+
+
 
 function stagePrompt (stageNumber) {
     // stageNumber from 1-6.
@@ -75,8 +78,9 @@ function getCookie(cname) {
 // gets data 
 function handleData () {
     currentStage = parseInt(getCookie("currentStage"));
-    currentPage = parseInt(getCookie("currentPage"));
-    if (options[currentPage-1].type === "answer") {
+    currentPage = getCookie("currentPage");
+    pageInfo = options.find(pageInfo => pageInfo.id === currentPage);
+    if (pageInfo.type === "answer") {
         answer = true;
         alert("This is an answer");
     } else {
@@ -87,15 +91,24 @@ function handleData () {
 }
 
 function left () {
-
+    if (answer) {
+        // restart
+        // change current page, need id system to be A1, A2, A3... for each stage
+    } else {
+        // look for left page, go through options (search all of ti to find appropriate page)
+    }
 }
 
 function right () {
-
+    if (answer) {
+        // change current state, current page, and save the data to stage1 or something. advance current stage and variable  
+    } else {
+        // look for left page
+    }
 }
 
 // need global array, the actual CYOA. 
 
-document.getElementById("objective").textContent = stagePrompt(stageType);
+document.getElementById("objective").textContent = stagePrompt(currentStage);
 
 /*during destination, left button is red start over, right button is green move on */
