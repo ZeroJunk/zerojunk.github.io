@@ -1,16 +1,44 @@
+var currentStage = 0; // from 1-6
+var currentPage = 0;
+var answer = false; // whether a choice has been made in the current stage
+
+var options = [
+    {
+        "id": 1,
+        "type": "decision",
+        "name": "Do you want X or Y?",
+        "leftText": "I'll go with X",
+        "rightText": "I'll stick with Y",
+        "left": 2,
+        "right": 3
+    }, 
+    {
+        "id": 2,
+        "type": "answer",
+        "name": "X",
+        "description": "Yeah this is X"
+    }, 
+    {
+        "id": 3,
+        "type": "answer",
+        "name": "Y",
+        "description": "So this is Y"
+    }
+]
+
 function stagePrompt (stageNumber) {
     // stageNumber from 1-6.
-    if (stageNumber == 1) {
+    if (stageNumber === 1) {
         return "PICK YOUR MORNING CAFE DESTINATION.";
-    } else if (stageNumber == 2) {
+    } else if (stageNumber === 2) {
         return "PICK YOUR FIRST SIGHTSEEING DESTINATION.";
-    } else if (stageNumber == 3) {
+    } else if (stageNumber === 3) {
         return "PICK YOUR LUNCH DESTINATION";
-    } else if (stageNumber == 4) {
+    } else if (stageNumber === 4) {
         return "PICK YOUR SECOND SIGHTSEEING DESTINATION";
-    } else if (stageNumber == 5) {
+    } else if (stageNumber === 5) {
         return "PICK YOUR DINNER DESTINATION";
-    } else if (stageNumber == 6) {
+    } else if (stageNumber === 6) {
         return "PICK YOUR THIRD SIGHTSEEING DESTINATION";
     } else {
         return "PICK YOUR ... ???? MOMMA?";
@@ -34,18 +62,40 @@ function getCookie(cname) {
     let ca = decodedCookie.split(';');
     for(let i = 0; i <ca.length; i++) {
         let c = ca[i];
-        while (c.charAt(0) == ' ') {
+        while (c.charAt(0) === ' ') {
             c = c.substring(1);
         }
-        if (c.indexOf(name) == 0) {
+        if (c.indexOf(name) === 0) {
             return c.substring(name.length, c.length);
         }
     }
     return "";
 }
 
-var stageType = parseInt(getCookie("currentStage"));
-alert(document.cookie);
+// gets data 
+function handleData () {
+    currentStage = parseInt(getCookie("currentStage"));
+    currentPage = parseInt(getCookie("currentPage"));
+    if (options[currentPage-1].type === "answer") {
+        answer = true;
+        alert("This is an answer");
+    } else {
+        answer = false;
+        alert("This is a question!");
+    }
+    alert(document.cookie);
+}
+
+function left () {
+
+}
+
+function right () {
+
+}
+
+// need global array, the actual CYOA. 
+
 document.getElementById("objective").textContent = stagePrompt(stageType);
 
 /*during destination, left button is red start over, right button is green move on */

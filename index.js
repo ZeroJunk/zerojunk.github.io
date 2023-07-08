@@ -20,3 +20,4 @@ removeCookie("stage5");
 removeCookie("stage6");
 removeCookie("currentPage");
 setCookie("currentStage", "1", 30); // current stage
+setCookie("currentPage", "1", 30)
