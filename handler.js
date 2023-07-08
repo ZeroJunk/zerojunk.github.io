@@ -82,12 +82,9 @@ function handleData () {
     pageInfo = options.find(pageInfo => pageInfo.id === currentPage);
     if (pageInfo.type === "answer") {
         answer = true;
-        alert("This is an answer");
     } else {
         answer = false;
-        alert("This is a question!");
     }
-    alert(document.cookie);
 }
 
 function left () {
