@@ -8,7 +8,9 @@ function setCookie(cname, cvalue, exdays) {
     let expires = "expires="+ d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
- 
+function removeCookie(cname) {
+    document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
 removeCookie("currentStage");
 removeCookie("stage1");
 removeCookie("stage2");
