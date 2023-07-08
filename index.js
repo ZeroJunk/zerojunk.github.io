@@ -9,4 +9,12 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-setCookie("stageNumber", "1", 30);
+removeCookie("currentStage");
+removeCookie("stage1");
+removeCookie("stage2");
+removeCookie("stage3");
+removeCookie("stage4");
+removeCookie("stage5");
+removeCookie("stage6");
+removeCookie("currentPage");
+setCookie("currentStage", "1", 30); // current stage
