@@ -1,25 +1,31 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
-  <head>
-    <title> This is my first Github Webpage!
-    </title>
-  </head>
-<body>
-<h1>Hello World! </h1>
-<h1>It took my son 1 month to put up a website. I did it in 23 minutes! </h1> 
-  <h2> ...Although his is much much nicer.  I can accept that....</h2>
-<p>Fathers these days!</p>
-  <hr>
-  <pre> Sometimes I like
-                              to put text way to the right side.
-    Sometimes I like it on the left.
-                  And sometimes right in the middle!</pre>
-  <hr>
-  <p> This is a list of some text techniques:</p>
-  <ol>
-    <li><b>Bold</b>
-    <li><strike>Strikethrough</strike>
-    <li><i>Italics</i></ol>
-  <a href="https://zerojunk.github.io/index2.html">GO TO MY SECOND GITHUB PAGE!</a>
-</body>
+    <head>
+        <title>CYOA Birthday Special : An Introduction</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <script src="index.js" async></script>
+    </head>
+    <body>
+        <div class="main-content">
+            <!-- Too much, a transition where each piece of text suddenly appears (gradient from color white into something else)-->
+            <h1>HAPPY BIRTHDAY, MOMMA!!!!!!</h1>
+            <p>We here at (AC)^2 Travel Firm wanted to give you the best travel experience. So we are giving you one choose-your-own-adventure package for the day, where you get to explore <span style="color: blue">Kor</span><span style="color: red">ea!</span></p>
+            <button id="intro-stage-1-opener" onclick="open1()">LET'S GO!</button>
+            <div id="intro-stage-1" style="display: none;">
+                <p>Your schedule falls into 6 parts:</p>
+                <div style="text-align: left; display: inline-block">
+                    <ol>
+                        <li>Morning Cafe</li>
+                        <li>Sightseeing</li>
+                        <li>Lunch</li>
+                        <li>More Sightseeing</li>
+                        <li>Dinner</li>
+                        <li>"Nightseeing"</li>
+                    </ol>
+                </div>
+                <p>And you can pick the destination! Let's get started!</p>
+                <a href="decision.html"><button>START</button></a>
+            </div>
+        </div>
+    </body>
 </html>
