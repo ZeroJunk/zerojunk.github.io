@@ -1,21 +1,154 @@
-* {
-    font-family: Inter, Poppins, "Roboto Mono", Monaco, monospace; /* fira sans */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f0f2f5;
 }
 
-.main-content {
-    text-align: center;
+h1 {
+  text-align: center;
+  color: #333;
 }
 
-#button-boxes {
-    display: flex;
-    width: 100%;
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
-#button-boxes > span {
-    flex-grow: 1;
+.filters select,
+.filters button {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
-.binary-button {
-    margin-left: 40px;
-    margin-right: 40px;
+.filters button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.filters button:hover {
+  background-color: #0056b3;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.package {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, opacity 1s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+  height: 300px;
+}
+
+.package:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.thumbnail {
+  width: 100%;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
+
+.package a {
+  display: block;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.package a:hover {
+  color: #007BFF;
+}
+
+.package:hover a {
+  color: #0056b3;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade animations for filtering */
+.fade-in {
+  animation: fadeIn 0.3s ease-in forwards;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Banner styles */
+.banner {
+  padding: 20px;
+  text-align: center;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.oceanblue-banner { background-color: #0077be; }
+.harbour-banner { background-color: #4682b4; }
+.green-banner { background-color: #228b22; }
+.vegetarian-banner { background-color: #8fbc8f; }
+.halifax-banner { background-color: #4169e1; }
+.main-banner { background-color: red; }
+.london-banner { background-color: #b22222; }
+.niagara-banner { background-color: #1e90ff; }
+.flea-banner { background-color: #8b4513; }
+.ontario-banner { background-color: #6a5acd; }
+.western-banner { background-color: #2e8b57; }
+
+/* Itinerary table styles */
+.itinerary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.itinerary-table th,
+.itinerary-table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: left;
+}
+
+.itinerary-table th {
+  background-color: #f7f7f7;
+  font-weight: bold;
 }
