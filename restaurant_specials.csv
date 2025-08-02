@@ -1,43 +1,6 @@
-City,Neighbourhood,Restaurant,Weekday,StartTime,EndTime,Description,Price,Cuisine,Last Updated
-York Region,Aurora,Plates and Bowls,Monday,10:00,20:00,Chicken Caesar Wraps,$7.99 ,Indian,2-Aug-25
-York Region,Aurora,Plates and Bowls,Tuesday,10:00,20:00,Butter Chicken Rice,$7.99 ,Indian,2-Aug-25
-York Region,Aurora,Plates and Bowls,Wednesday,10:00,20:00,Chicken Shish Kabob Rice,$7.99 ,Indian,2-Aug-25
-York Region,Aurora,Plates and Bowls,Thursday,10:00,20:00,Veggie Curry Rice,$6.99 ,Indian,2-Aug-25
-York Region,Aurora,Plates and Bowls,Friday,10:00,20:00,Chicken Biryani Rice,$7.99 ,Indian,2-Aug-25
-York Region,Aurora,Plates and Bowls,Saturday,10:00,20:00,Tandoori Chicken Shawarma Rice,$7.99 ,Indian,2-Aug-25
-York Region,Aurora,Plates and Bowls,Sunday,10:00,20:00,Four Samosas,$2.99 ,Indian,2-Aug-25
-York Region,Richmond Hill,Cotti Coffee,Monday,10:00,20:00,Matcha Oat Latte,$3.99 ,Coffee,2-Aug-25
-York Region,Richmond Hill,Cotti Coffee,Tuesday,10:00,20:00,Orange Americano,$3.99 ,Coffee,2-Aug-25
-York Region,Richmond Hill,Cotti Coffee,Wednesday,10:00,20:00,Brown Sugar Oolong Oat Café,$3.99 ,Coffee,2-Aug-25
-York Region,Richmond Hill,Cotti Coffee,Thursday,10:00,20:00,Mango Pomelo Delight,$3.99 ,Coffee,2-Aug-25
-York Region,Richmond Hill,Cotti Coffee,Friday,10:00,20:00,Cloud Mousse Strawberry Crème Jasmine Latte,$3.99 ,Coffee,2-Aug-25
-York Region,Richmond Hill,Cotti Coffee,Saturday,10:00,20:00,Sea Salt Caramel Oat Macchiato,$3.99 ,Coffee,2-Aug-25
-York Region,Richmond Hill,Cotti Coffee,Sunday,10:00,20:00,Stardust Oolong Milk Tea,$3.99 ,Coffee,2-Aug-25
-York Region,Richmond Hill,O Street,Monday,14:30,17:00,Afternoon Tea - Meal plus Hot Drink,$12.99 ,Chinese,2-Aug-25
-York Region,Richmond Hill,O Street,Tuesday,14:30,17:00,Afternoon Tea - Meal plus Hot Drink,$12.99 ,Chinese,2-Aug-25
-York Region,Richmond Hill,O Street,Wednesday,14:30,17:00,Afternoon Tea - Meal plus Hot Drink,$12.99 ,Chinese,2-Aug-25
-York Region,Richmond Hill,O Street,Thursday,14:30,17:00,Afternoon Tea - Meal plus Hot Drink,$12.99 ,Chinese,2-Aug-25
-York Region,Richmond Hill,O Street,Friday,14:30,17:00,Afternoon Tea - Meal plus Hot Drink,$12.99 ,Chinese,2-Aug-25
-York Region,Richmond Hill,O Street,Saturday,14:30,17:00,Afternoon Tea - Meal plus Hot Drink,$12.99 ,Chinese,2-Aug-25
-York Region,Richmond Hill,O Street,Sunday,14:30,17:00,Afternoon Tea - Meal plus Hot Drink,$12.99 ,Chinese,2-Aug-25
-York Region,Markham,Keung Kee,Monday,14:30,17:00,Afternoon Tea - Meal plus Special Cold Drink,$9.90 ,Chinese,2-Aug-25
-York Region,Markham,Keung Kee,Tuesday,14:30,17:00,Afternoon Tea - Meal plus Special Cold Drink,$9.90 ,Chinese,2-Aug-25
-York Region,Markham,Keung Kee,Wednesday,14:30,17:00,Afternoon Tea - Meal plus Special Cold Drink,$9.90 ,Chinese,2-Aug-25
-York Region,Markham,Keung Kee,Thursday,14:30,17:00,Afternoon Tea - Meal plus Special Cold Drink,$9.90 ,Chinese,2-Aug-25
-York Region,Markham,Keung Kee,Friday,14:30,17:00,Afternoon Tea - Meal plus Special Cold Drink,$9.90 ,Chinese,2-Aug-25
-York Region,Markham,Keung Kee,Saturday,14:30,17:00,Afternoon Tea - Meal plus Special Cold Drink,$9.90 ,Chinese,2-Aug-25
-York Region,Markham,Keung Kee,Sunday,14:30,17:00,Afternoon Tea - Meal plus Special Cold Drink,$9.90 ,Chinese,2-Aug-25
-York Region,Richmond Hill,Mr. Congee,Monday,15:00,17:00,Afternoon Tea - Meal plus Special Cold Drink,$12.99 ,Chinese,2-Aug-25
-York Region,Richmond Hill,Mr. Congee,Tuesday,15:00,17:00,Afternoon Tea - Meal plus Special Cold Drink,$12.99 ,Chinese,2-Aug-25
-York Region,Richmond Hill,Mr. Congee,Wednesday,15:00,17:00,Afternoon Tea - Meal plus Special Cold Drink,$12.99 ,Chinese,2-Aug-25
-York Region,Richmond Hill,Mr. Congee,Thursday,15:00,17:00,Afternoon Tea - Meal plus Special Cold Drink,$12.99 ,Chinese,2-Aug-25
-York Region,Richmond Hill,Mr. Congee,Friday,15:00,17:00,Afternoon Tea - Meal plus Special Cold Drink,$12.99 ,Chinese,2-Aug-25
-York Region,Richmond Hill,Mr. Congee,Saturday,15:00,17:00,Afternoon Tea - Meal plus Special Cold Drink,$12.99 ,Chinese,2-Aug-25
-York Region,Richmond Hill,Mr. Congee,Sunday,15:00,17:00,Afternoon Tea - Meal plus Special Cold Drink,$12.99 ,Chinese,2-Aug-25
-York Region,Aurora,Tahini's,Monday,10:00,20:00,Regular Chicken and Rice Bowl,$8.00 ,Mediterranean,2-Aug-25
-York Region,Aurora,Tahini's,Tuesday,10:00,20:00,Medium Gyro Wrap,$8.00 ,Mediterranean,2-Aug-25
-York Region,Aurora,Tahini's,Wednesday,10:00,20:00,Medium Chicken Shawarma Wrap,$8.00 ,Mediterranean,2-Aug-25
-York Region,Aurora,Tahini's,Thursday,10:00,20:00,Regular Gyro Rice Bowl,$8.00 ,Mediterranean,2-Aug-25
-York Region,Aurora,Tahini's,Friday,10:00,20:00,Regular Falafel Rice Bowl,$8.00 ,Mediterranean,2-Aug-25
-York Region,Aurora,Tahini's,Saturday,10:00,20:00,Medium Falafel Wrap,$8.00 ,Mediterranean,2-Aug-25
-York Region,Aurora,Tahini's,Sunday,10:00,20:00,Regular Habibi Bowl,$8.00 ,Mediterranean,2-Aug-25
+Restaurant,City,Neighbourhood,Weekday,StartTime,EndTime,Description,Price,Cuisine
+The Burger Joint,Toronto,Liberty Village,Monday,17:00,20:00,Half-price wings,$5.99,Bar Food
+Sushi World,Vancouver,Kitsilano,Tuesday,18:00,21:00,Discount sushi rolls,$8.99,Japanese
+Pasta Palace,Montreal,Old Port,Wednesday,16:00,19:00,Buy one get one pasta,$12.00,Italian
+Taco Town,Calgary,Beltline,Thursday,17:30,22:00,Taco night special,$3.00,Mexican
+Curry House,Edmonton,Whyte Ave,Friday,18:00,23:00,Spicy curry combo,$10.00,Indian
