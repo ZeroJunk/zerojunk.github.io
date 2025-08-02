@@ -14,7 +14,7 @@ def serve_file(path):
 @app.route('/save', methods=['POST'])
 def save_csv():
     data = request.data.decode('utf-8')
-    with open('restaurant_specials.csv', 'w') as f:
+    with open('restaurant_specials.csv', 'w', encoding='utf-8') as f:
         f.write(data)
     return 'Saved', 200
 
