@@ -1,74 +1,89 @@
+let specialsData = [];
+
+window.onload = function() {
+  fetch("restaurant_specials.csv")
+    .then(response => response.text())
+    .then(text => {
+      const rows = text.trim().split('\n').map(row => row.split(','));
+      const headers = rows[0].map(h => h.trim());
+      specialsData = rows.slice(1).map(row => {
+        let obj = {};
+        row.forEach((value, i) => {
+          obj[headers[i]] = value.trim();
+        });
+        return obj;
+      });
+
+      populateFilters(specialsData);
+      displayResults(specialsData);
+    })
+    .catch(error => {
+      document.getElementById("results").innerHTML = "<p>Error loading CSV file.</p>";
+      console.error("CSV load error:", error);
+    });
+};
+
+function populateFilters(data) {
+  const fields = ["City", "Neighbourhood", "Weekday", "Cuisine"];
+  fields.forEach(field => {
+    const select = document.getElementById(field.toLowerCase() + "Filter");
+    select.innerHTML = `<option value="">All ${field}s</option>`;
+    const uniqueValues = [...new Set(data.map(item => item[field]))].sort();
+    uniqueValues.forEach(value => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = value;
+      select.appendChild(option);
+    });
+  });
+}
+
 function applyFilters() {
-  const length = document.getElementById("lengthFilter").value;
-  const cost = document.getElementById("costFilter").value;
-  const type = document.getElementById("typeFilter").value;
-  const packages = document.querySelectorAll(".package");
-  let visibleCount = 0;
+  const city = document.getElementById("cityFilter").value;
+  const neighbourhood = document.getElementById("neighbourhoodFilter").value;
+  const weekday = document.getElementById("weekdayFilter").value;
+  const cuisine = document.getElementById("cuisineFilter").value;
+  const time = document.getElementById("timeFilter").value;
 
-  packages.forEach(pkg => {
-    const match =
-      (!length || pkg.dataset.length === length) &&
-      (!cost || pkg.dataset.cost === cost) &&
-      (!type || pkg.dataset.type === type);
-
-    if (match) {
-      pkg.classList.remove("fade-out");
-      pkg.classList.add("fade-in");
-      pkg.style.display = "block";
-      visibleCount++;
-    } else {
-      pkg.classList.remove("fade-in");
-      pkg.classList.add("fade-out");
-      setTimeout(() => {
-        pkg.style.display = "none";
-      }, 300);
-    }
+  const filtered = specialsData.filter(item => {
+    return (!city || item.City === city) &&
+           (!neighbourhood || item.Neighbourhood === neighbourhood) &&
+           (!weekday || item.Weekday === weekday) &&
+           (!cuisine || item.Cuisine === cuisine) &&
+           (!time || (item.StartTime <= time && item.EndTime >= time));
   });
 
-  updateVisibleCount(visibleCount);
+  displayResults(filtered);
 }
 
-function resetFilters() {
-  document.getElementById("lengthFilter").value = "";
-  document.getElementById("costFilter").value = "";
-  document.getElementById("typeFilter").value = "";
-
-  const packages = document.querySelectorAll(".package");
-  packages.forEach(pkg => {
-    pkg.classList.remove("fade-out");
-    pkg.classList.add("fade-in");
-    pkg.style.display = "block";
-  });
-
-  updateVisibleCount(packages.length);
+function clearFilters() {
+  document.getElementById("cityFilter").value = "";
+  document.getElementById("neighbourhoodFilter").value = "";
+  document.getElementById("weekdayFilter").value = "";
+  document.getElementById("cuisineFilter").value = "";
+  document.getElementById("timeFilter").value = "";
+  displayResults(specialsData);
 }
 
-function updateVisibleCount(count) {
-  let counter = document.getElementById("visibleCount");
-  if (!counter) {
-    counter = document.createElement("div");
-    counter.id = "visibleCount";
-    counter.style.textAlign = "center";
-    counter.style.margin = "10px";
-    counter.style.fontWeight = "bold";
-    document.body.insertBefore(counter, document.querySelector(".grid"));
+function displayResults(data) {
+  const resultsDiv = document.getElementById("results");
+  resultsDiv.innerHTML = "";
+
+  if (data.length === 0) {
+    resultsDiv.innerHTML = "<p>No specials found.</p>";
+    return;
   }
-  counter.textContent = `Showing ${count} vacation package${count !== 1 ? "s" : ""}`;
-}
 
-// Add tooltips and keyboard navigation
-document.addEventListener("DOMContentLoaded", () => {
-  const applyBtn = document.querySelector("button[onclick='applyFilters()']");
-  const resetBtn = document.querySelector("button[onclick='resetFilters()']");
-  if (applyBtn) applyBtn.title = "Apply selected filters to the vacation packages";
-  if (resetBtn) resetBtn.title = "Reset all filters and show all packages";
-
-  // Add keyboard navigation
-  const packages = document.querySelectorAll(".package a");
-  packages.forEach(link => {
-    link.setAttribute("tabindex", "0");
+  data.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "result-card";
+    card.innerHTML = `
+      <strong>${item.Restaurant}</strong><br>
+      ${item.Description}<br>
+      <em>${item.City}, ${item.Neighbourhood}</em><br>
+      ${item.Weekday} | ${item.StartTime} - ${item.EndTime}<br>
+      ${item.Cuisine} | ${item.Price}
+    `;
+    resultsDiv.appendChild(card);
   });
-
-  // Initialize visible count
-  updateVisibleCount(document.querySelectorAll(".package").length);
-});
+}

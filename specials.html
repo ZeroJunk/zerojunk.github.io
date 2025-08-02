@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Restaurant Specials</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .navigation, .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    select, input[type="time"], button {
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    #results {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .result-card {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Search Restaurant Specials</h1>
+
+  <div class="navigation">
+    <button onclick="window.location.href='index.html'">← Back</button>
+  </div>
+
+  <div class="filters">
+    <select id="cityFilter"><option value="">All Cities</option></select>
+    <select id="neighbourhoodFilter"><option value="">All Neighbourhoods</option></select>
+    <select id="weekdayFilter"><option value="">All Weekdays</option></select>
+    <select id="cuisineFilter"><option value="">All Cuisines</option></select>
+    <input type="time" id="timeFilter">
+    <button onclick="applyFilters()">Filter</button>
+    <button onclick="clearFilters()">Clear Filters</button>
+  </div>
+
+  <div id="results"></div>
+
+  <script>
+    let specialsData = [];
+
+    window.onload = function() {
+      fetch("restaurant_specials.csv")
+        .then(response => response.text())
+        .then(text => {
+          const rows = text.trim().split('\n').map(row => row.split(','));
+          const headers = rows[0].map(h => h.trim());
+          specialsData = rows.slice(1).map(row => {
+            let obj = {};
+            row.forEach((value, i) => {
+              obj[headers[i]] = value.trim();
+            });
+            return obj;
+          });
+
+          populateFilters(specialsData);
+          displayResults(specialsData);
+        })
+        .catch(error => {
+          document.getElementById("results").innerHTML = "<p>Error loading CSV file.</p>";
+          console.error("CSV load error:", error);
+        });
+    };
+
+    function populateFilters(data) {
+      const fields = ["City", "Neighbourhood", "Weekday", "Cuisine"];
+      fields.forEach(field => {
+        const select = document.getElementById(field.toLowerCase() + "Filter");
+        select.innerHTML = `<option value="">All ${field}s</option>`;
+        const uniqueValues = [...new Set(data.map(item => item[field]))].sort();
+        uniqueValues.forEach(value => {
+          const option = document.createElement("option");
+          option.value = value;
+          option.textContent = value;
+          select.appendChild(option);
+        });
+      });
+    }
+
+    function applyFilters() {
+      const city = document.getElementById("cityFilter").value;
+      const neighbourhood = document.getElementById("neighbourhoodFilter").value;
+      const weekday = document.getElementById("weekdayFilter").value;
+      const cuisine = document.getElementById("cuisineFilter").value;
+      const time = document.getElementById("timeFilter").value;
+
+      const filtered = specialsData.filter(item => {
+        return (!city || item.City === city) &&
+               (!neighbourhood || item.Neighbourhood === neighbourhood) &&
+               (!weekday || item.Weekday === weekday) &&
+               (!cuisine || item.Cuisine === cuisine) &&
+               (!time || (item.StartTime <= time && item.EndTime >= time));
+      });
+
+      displayResults(filtered);
+    }
+
+    function clearFilters() {
+      document.getElementById("cityFilter").value = "";
+      document.getElementById("neighbourhoodFilter").value = "";
+      document.getElementById("weekdayFilter").value = "";
+      document.getElementById("cuisineFilter").value = "";
+      document.getElementById("timeFilter").value = "";
+      displayResults(specialsData);
+    }
+
+    function displayResults(data) {
+      const resultsDiv = document.getElementById("results");
+      resultsDiv.innerHTML = "";
+
+      if (data.length === 0) {
+        resultsDiv.innerHTML = "<p>No specials found.</p>";
+        return;
+      }
+
+      data.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "result-card";
+        card.innerHTML = `
+          <strong>${item.Restaurant}</strong><br>
+          ${item.Description}<br>
+          <em>${item.City}, ${item.Neighbourhood}</em><br>
+          ${item.Weekday} | ${item.StartTime} - ${item.EndTime}<br>
+          ${item.Cuisine} | ${item.Price}
+        `;
+        resultsDiv.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>

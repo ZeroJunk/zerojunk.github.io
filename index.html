@@ -2,77 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Vacation Packages</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Welcome to Restaurant Specials</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 40px;
+    }
+
+    a.button-link {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    a.button-link:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-  <div class="banner main-banner">Explore Our Vacation Packages</div>
-
-  <div class="filters">
-    <select id="lengthFilter">
-      <option value="">All Lengths</option>
-      <option value="Day Trip">Day Trip</option>
-      <option value="1-2 Nights">1-2 Nights</option>
-      <option value="Week Long">Week Long</option>
-      <option value="Multi-Week">Multi-Week</option>
-    </select>
-    <select id="costFilter">
-      <option value="">All Costs</option>
-      <option value="Cheap">Cheap</option>
-      <option value="Moderate">Moderate</option>
-      <option value="Expensive">Expensive</option>
-    </select>
-    <select id="typeFilter">
-      <option value="">All Types</option>
-      <option value="Luxury">Luxury</option>
-      <option value="Exploration">Exploration</option>
-      <option value="Comfortable">Comfortable</option>
-    </select>
-    <button onclick="applyFilters()" title="Apply selected filters to the vacation packages">Apply Filters</button>
-    <button onclick="resetFilters()" title="Reset all filters and show all packages">Reset</button>
-  </div>
-
-  <div id="visibleCount" style="text-align:center; margin:10px; font-weight:bold;"></div>
-
-  <div class="grid">
-    <div class="package flea-banner" data-length="Day Trip" data-cost="Cheap" data-type="Exploration">
-      <div class="thumbnail" style="background-image: url('image/flea.png');"></div>
-      <a href="pickering_flea.html" tabindex="0">🛍️ Pickering Flea Market</a>
-    </div>
-    <div class="package ontario-banner" data-length="1-2 Nights" data-cost="Moderate" data-type="Comfortable">
-      <div class="thumbnail" style="background-image: url('image/ontario.png');"></div>
-      <a href="southwestern_ontario.html" tabindex="0">🚗 Southwestern Ontario</a>
-    </div>
-    <div class="package western-banner" data-length="Week Long" data-cost="Expensive" data-type="Exploration">
-      <div class="thumbnail" style="background-image: url('image/western.png');"></div>
-      <a href="western_canada.html" tabindex="0">🏔️ Western Canada</a>
-    </div>
-    <div class="package harbour-banner" data-length="1-2 Nights" data-cost="Moderate" data-type="Comfortable">
-      <div class="thumbnail" style="background-image: url('image/harbour.png');"></div>
-      <a href="friday_harbour.html" tabindex="0">⚓ Friday Harbour</a>
-    </div>
-    <div class="package green-banner" data-length="Day Trip" data-cost="Cheap" data-type="Exploration">
-      <div class="thumbnail" style="background-image: url('image/fruit.png');"></div>
-      <a href="fruit_picking.html" tabindex="0">🍓 Fruit Picking</a>
-    </div>
-    <div class="package vegetarian-banner" data-length="Day Trip" data-cost="Moderate" data-type="Luxury">
-      <div class="thumbnail" style="background-image: url('image/vegetarian.png');"></div>
-      <a href="gourmet_vegetarian.html" tabindex="0">🥗 Gourmet Vegetarian</a>
-    </div>
-    <div class="package halifax-banner" data-length="Week Long" data-cost="Expensive" data-type="Exploration">
-      <div class="thumbnail" style="background-image: url('image/halifax.png');"></div>
-      <a href="halifax_trip.html" tabindex="0">🌊 Halifax Trip</a>
-    </div>
-    <div class="package london-banner" data-length="Multi-Week" data-cost="Expensive" data-type="Luxury">
-      <div class="thumbnail" style="background-image: url('image/london.png');"></div>
-      <a href="london_trip.html" tabindex="0">🎡 London Trip</a>
-    </div>
-    <div class="package niagara-banner" data-length="1-2 Nights" data-cost="Moderate" data-type="Comfortable">
-      <div class="thumbnail" style="background-image: url('image/niagara.png');"></div>
-      <a href="niagara_overnight.html" tabindex="0">🌊 Niagara Overnight</a>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  <h1>Welcome to the Restaurant Specials Directory</h1>
+  <a href="specials.html" class="button-link">Search Specials Here</a>
 </body>
 </html>
