@@ -1,6 +1,4 @@
-Restaurant,City,Neighbourhood,Weekday,StartTime,EndTime,Description,Price,Cuisine
-The Burger Joint,Toronto,Liberty Village,Monday,17:00,20:00,Half-price wings,$5.99,Bar Food
-Sushi World,Vancouver,Kitsilano,Tuesday,18:00,21:00,Discount sushi rolls,$8.99,Japanese
-Pasta Palace,Montreal,Old Port,Wednesday,16:00,19:00,Buy one get one pasta,$12.00,Italian
-Taco Town,Calgary,Beltline,Thursday,17:30,22:00,Taco night special,$3.00,Mexican
-Curry House,Edmonton,Whyte Ave,Friday,18:00,23:00,Spicy curry combo,$10.00,Indian
+Restaurant,City,Neighbourhood,Weekday,StartTime,EndTime,Description,Price,Cuisine,Notes
+The Burger Joint,Toronto,Downtown,Monday,17:00,20:00,Half-price burgers,$5.99,American,
+Sushi Place,Vancouver,Gastown,Tuesday,18:00,21:00,Discount sushi rolls,$8.99,Japanese,
+Pasta House,Montreal,Old Port,Wednesday,16:00,19:00,Buy one get one pasta,$12.00,Italian,
